@@ -1,9 +1,12 @@
 
 add_executable(charlsjs jslib.cpp)
+add_executable(charlsjs-esm jslib.cpp)
 
 target_link_libraries(charlsjs PRIVATE charls)
+target_link_libraries(charlsjs-esm PRIVATE charls)
 
 target_compile_features(charlsjs PUBLIC cxx_std_17)
+target_compile_features(charlsjs-esm PUBLIC cxx_std_17)
 
 if (CMAKE_BUILD_TYPE STREQUAL Debug)
 	SET(linkFlags "-g4")
@@ -25,10 +28,28 @@ set_target_properties(
       -s TOTAL_MEMORY=1073741824 \
       -s ASSERTIONS=0 \
       -s FILESYSTEM=0 \
+      -s EXPORTED_FUNCTIONS=[] \
+      -s EXPORTED_RUNTIME_METHODS=[ccall] \
+   "
+)
+
+set_target_properties(
+    charlsjs-esm
+    PROPERTIES 
+    LINK_FLAGS "\
+      --bind \
+      -s NO_EXIT_RUNTIME=1 \
+      -s DISABLE_EXCEPTION_CATCHING=1 \
+      -s MALLOC=emmalloc \
+      -s ALLOW_MEMORY_GROWTH=1 \
+      -s TOTAL_MEMORY=1073741824 \
+      -s ASSERTIONS=0 \
+      -s FILESYSTEM=0 \
       -s EXPORT_ES6=1 \
       -s MODULARIZE=1 \
       -s EXPORTED_FUNCTIONS=[] \
       -s EXPORTED_RUNTIME_METHODS=[ccall] \
    "
+   OUTPUT_NAME "charlsjs"
    SUFFIX ".mjs"
 )
