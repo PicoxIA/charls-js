@@ -1,4 +1,7 @@
-let charls = require('../../dist/charlsjs.js');
+let charls;
+require('../../dist/charlsjs.mjs').then((module) => {
+  charls = module;
+});
 const fs = require('fs')
 
 function decode(pathToJPEGLSFile, iterations = 1) {

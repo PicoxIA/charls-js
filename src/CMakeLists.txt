@@ -25,6 +25,10 @@ set_target_properties(
       -s TOTAL_MEMORY=1073741824 \
       -s ASSERTIONS=0 \
       -s FILESYSTEM=0 \
+      -s EXPORT_ES6=1 \
+      -s MODULARIZE=1 \
       -s EXPORTED_FUNCTIONS=[] \
       -s EXPORTED_RUNTIME_METHODS=[ccall] \
-   ")
+   "
+   SUFFIX ".mjs"
+)
