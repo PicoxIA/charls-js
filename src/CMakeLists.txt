@@ -49,6 +49,7 @@ set_target_properties(
       -s MODULARIZE=1 \
       -s EXPORTED_FUNCTIONS=[] \
       -s EXPORTED_RUNTIME_METHODS=[ccall] \
+      -s ENVIRONMENT=worker \
    "
    OUTPUT_NAME "charlsjs"
    SUFFIX ".mjs"
