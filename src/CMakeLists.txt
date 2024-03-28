@@ -25,7 +25,7 @@ set_target_properties(
       -s DISABLE_EXCEPTION_CATCHING=1 \
       -s MALLOC=emmalloc \
       -s ALLOW_MEMORY_GROWTH=1 \
-      -s TOTAL_MEMORY=1073741824 \
+      -s TOTAL_MEMORY=67108864 \
       -s ASSERTIONS=0 \
       -s FILESYSTEM=0 \
       -s EXPORTED_FUNCTIONS=[] \
@@ -42,7 +42,7 @@ set_target_properties(
       -s DISABLE_EXCEPTION_CATCHING=1 \
       -s MALLOC=emmalloc \
       -s ALLOW_MEMORY_GROWTH=1 \
-      -s TOTAL_MEMORY=1073741824 \
+      -s TOTAL_MEMORY=67108864 \
       -s ASSERTIONS=0 \
       -s FILESYSTEM=0 \
       -s EXPORT_ES6=1 \
